@@ -29,8 +29,7 @@ const arrowRight = document.getElementById('arrow_right');
 const tagline = document.querySelector('#banner p');
 const dots = document.querySelector('.dots');
 let currentImageIndex = 0;
-let dot = document.createElement("span");
-const dotSelect = document.querySelectorAll(".dot");
+
 //création de la fonction ChangeSlide pour changer l'image affichée en fonction de la valeur de la variable currentImageIndex
 function ChangeSlide(sens) {
 	currentImageIndex += sens;
@@ -62,13 +61,13 @@ arrowRight.addEventListener("click", () => {
 
 //fonction création dot
 function createDot(index) {
+	let dot = document.createElement("span");
 	dot.classList.add("dot")
 	dot.addEventListener('click', function () {
 		currentImageIndex = index
 		setslide()
 		console.log(index)
 	})
-
 
 	dots.appendChild(dot)
 }
@@ -80,6 +79,7 @@ for (let i = 0; i < slides.length; i++) {
 //fonction pour dot sélectionné en fonction de l'image
 
 function selectDot(index) {
+	const dotSelect = document.querySelectorAll(".dot");
 	for (let i = 0; i < dotSelect.length; i++) {
 		dotSelect[i].classList.remove("dot_selected");
 	}
